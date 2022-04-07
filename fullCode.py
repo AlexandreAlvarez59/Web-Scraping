@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[16]:
+# In[1]:
 
 
 import requests
@@ -35,7 +35,7 @@ for i in range(0, 71, 10):
             file.write(link + '\n')
 
 
-# In[122]:
+# In[2]:
 
 
 import requests
@@ -59,7 +59,7 @@ with open('urls.txt', 'r') as file:
                 time.sleep(3)
 
 
-# In[189]:
+# In[3]:
 
 
 #Liste de mots clés à rechercher
@@ -78,7 +78,7 @@ dictKeywords = dict(zip(keywords, lZeros))
 print(dictKeywords)
 
 
-# In[190]:
+# In[4]:
 
 
 import re
@@ -111,13 +111,13 @@ dictKeywords["java"] = git
 print(dictKeywords)
 
 
-# In[132]:
+# In[5]:
 
 
 get_ipython().system('pip install wordcloud')
 
 
-# In[191]:
+# In[6]:
 
 
 from wordcloud import WordCloud
@@ -132,7 +132,7 @@ plt.axis("off")
 plt.show();
 
 
-# In[192]:
+# In[7]:
 
 
 # Fréquence d'apparition en pourcentage en fonction du nombre d'annonces scrapées
@@ -141,7 +141,7 @@ for key, value in dictKeywords.items():
 print(dictKeywords)
 
 
-# In[193]:
+# In[8]:
 
 
 # Tri
@@ -154,8 +154,7 @@ sortedKeywords = sortedKeywords[:8]
 sortedValues = sortedValues[:8]
 
 
-# In[194]:
-
+# In[9]:
 
 import matplotlib.pyplot as plt
 import numpy
