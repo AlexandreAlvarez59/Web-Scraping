@@ -3,7 +3,7 @@
 keywords = ['excel', 'sql', 'microsoft', 'tableau',  'python', 'word', 'powerpoint', 'r',  'slack', 'looker', 'azure', 'jira', 'server', 'snowflake', 'scrum',
 'powerbi', 'shell', 'linux', 'sas', 'sharepoint', 'devops', 'mysql', 'javascript', 'mssql', 'vba', 'postgresql', 'spreadsheets',
 'pandas', 'gdpr', 'rgpd' 'elt', 'scala', 'css', 'spreadsheet', 'alteryx', 'git', 'github', 'postgres', 'power_bi', 'spss', 'power', 'cloud', 'saas', 'etl', 
-            'hadoop', 'dataviz', 'visualisation', 'programmation', 'gcp', 'aws', 'docker', 'html']
+            'hadoop', 'dataviz', 'visualisation', 'programmation', 'gcp', 'aws', 'docker', 'html', 'qlik']
 
 lenK = len(keywords)
 lZeros = [0] * lenK
