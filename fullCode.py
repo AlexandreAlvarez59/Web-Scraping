@@ -66,8 +66,8 @@ with open('urls.txt', 'r') as file:
 
 keywords = ['excel', 'sql', 'microsoft', 'tableau',  'python', 'word', 'powerpoint', 'r',  'slack', 'looker', 'azure', 'jira', 'server', 'snowflake', 'scrum',
 'powerbi', 'shell', 'linux', 'sas', 'sharepoint', 'devops', 'mysql', 'javascript', 'mssql', 'vba', 'postgresql', 'spreadsheets',
-'pandas', 'gdpr', 'rgpd' 'elt', 'scala', 'css', 'spreadsheet', 'alteryx', 'git', 'github', 'postgres', 'power_bi', 'spss', 'power', 'cloud', 'saas', 'etl', 
-            'hadoop', 'dataviz', 'visualisation', 'programmation', 'gcp', 'aws', 'docker', 'html']
+'pandas', 'gdpr', 'rgpd' 'elt', 'scala', 'css', 'spreadsheet', 'alteryx', 'git', 'github', 'postgres', 'power_bi', 'spss', 'power bi', 'cloud', 'saas', 'etl', 
+            'hadoop', 'dataviz', 'visualisation', 'programmation', 'gcp', 'aws', 'docker', 'html', 'qlik']
 
 lenK = len(keywords)
 lZeros = [0] * lenK
@@ -84,7 +84,7 @@ print(dictKeywords)
 import re
 #Remplissage du dictionnaire
 
-r = sas = git = nbText = 0
+r = sas = git = java = sql = nbText = 0
 
 
 for text in texts:
@@ -94,19 +94,30 @@ for text in texts:
         if text.find(keyword) >= 0:
             dictKeywords[keyword] += 1
             
-    #Regex car il est simple de match avec les mots courts, on fait ces cas à part pour être sûr de leur valeur
+    #Regex car il est simple de match avec les mots courts, on fait ces cas à part pour être sûr de leur valeur 
+    # (todo mettre dans une fonction)
     regexR = re.search("[^0-9a-zA-ZÀ-ú]r[^0-9a-zA-ZÀ-ú]", text)
     if regexR: r += 1
     regexSas = re.search("[^0-9a-zA-ZÀ-ú]sas[^0-9a-zA-ZÀ-ú]", text)
     if regexSas: sas += 1
     regexGit = re.search("[^0-9a-zA-ZÀ-ú]git[^0-9a-zA-ZÀ-ú]", text)
     if regexGit: git += 1
+    regexJava = re.search("[^0-9a-zA-ZÀ-ú]java[^0-9a-zA-ZÀ-ú]", text)
+    if regexJava: java += 1
+    regexSql = re.search("[^0-9a-zA-ZÀ-ú]sql[^0-9a-zA-ZÀ-ú]", text)
+    if regexSql: sql += 1
         
 # Puis on insère la valeur dans le dictionnaire
 dictKeywords["r"] = r
 dictKeywords["sas"] = sas
 dictKeywords["git"] = git
-dictKeywords["java"] = git
+dictKeywords["java"] = java
+dictKeywords["sql"] = sql
+
+# Regroupement des différentes écritures pour PowerBI en une seule
+dictKeywords["power bi"] = dictKeywords["power bi"] + dictKeywords["powerbi"] + dictKeywords["power_bi"] 
+dictKeywords["powerbi"] = 0
+dictKeywords["power_bi"] = 0
 
 print(dictKeywords)
 
@@ -155,6 +166,7 @@ sortedValues = sortedValues[:8]
 
 
 # In[9]:
+
 
 import matplotlib.pyplot as plt
 import numpy
